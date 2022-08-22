@@ -36,6 +36,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Nam/.m2/repository/org/mariadb/jdbc/mariadb-java-client/2.7.3/mariadb-java-client-2.7.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AI-00/.m2/repository/org/mariadb/jdbc/mariadb-java-client/2.7.3/mariadb-java-client-2.7.3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
