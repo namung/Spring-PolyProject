@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.AdminPage.mapper.MemberMapper">
+  	<!-- 회원가입 -->
+  	<insert id="memberJoin">
+  		insert into Admin_user values(#{adId}, #{adPw}, #{adName}, #{adMail}, #{adAddr1}, now())
+  	</insert>
+  	<!-- 로그인 -->
+  	<select id="memberLogin" resultType="com.AdminPage.model.MemberVO">
+  		select adId, adName from Admin_user where adId=#{adId} and adPw=#{adPw}
+  	</select>
+  </mapper>

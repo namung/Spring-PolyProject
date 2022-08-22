@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.AdminPage.mapper.SalesMapper">
+    <!-- 데이터 넣기 -->
+    <!--<insert id="salesAdd">
+        insert into sales value(#{productId}, #{productName}, #{productPrice}, #{salesAmount}, #{salesDate})
+    </insert>-->
+
+    <!-- 월 총액 보기 (sql 쿼리로 총액 한 번에 구하기) -->
+     <select id="monthTotal" resultType="int">
+        select sum(ex1.total) from (select productPrice * salesAmount total from sales where month(salesDate) = cast(#{month} as unsigned) ) ex1
+    </select> 
+
+    <!-- 월 상세목록 보기 -->
+    <select id="getMonthDetailList" resultType="com.AdminPage.model.SalesCriteria">
+        <!-- select productName, productPrice, salesAmount, date_format(salesDate, '%Y-%m-%d') salesDate from sales where month(salesDate) = ${salesDate} -->
+        select productId, productName, productPrice, salesAmount, date_format(salesDate, '%Y-%m-%d') salesDate from sales where month(salesDate) = cast(#{month} as unsigned)
+    </select>
+</mapper>
