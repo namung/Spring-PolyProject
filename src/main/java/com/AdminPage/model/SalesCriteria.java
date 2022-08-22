@@ -5,7 +5,7 @@ public class SalesCriteria {
 	/* 관리자가 선택한 월 */
 	private String month;
 	
-	private int productId;
+	private String productId;
 	private String productName;
 	private int productPrice;
 	private int salesAmount;
@@ -26,11 +26,11 @@ public class SalesCriteria {
 	
 	
 	
-	public int getProductId() {
+	public String getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(String productId) {
 		this.productId = productId;
 	}
 
