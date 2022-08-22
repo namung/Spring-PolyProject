@@ -2,7 +2,7 @@ package com.AdminPage.model;
 
 public class SalesVO {
     // 상품 id
-    private int productId;
+    private String productId;
 
     // 상품명
     private String productName;
@@ -18,11 +18,11 @@ public class SalesVO {
 
     // Getter and Setter
 
-    public int getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
