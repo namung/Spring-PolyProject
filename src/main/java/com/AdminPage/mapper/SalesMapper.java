@@ -17,7 +17,7 @@ public interface SalesMapper {
     //public void salesAdd(SalesVO sales);
 
     // 월 총액
-    public int monthTotal(SalesCriteria sc);
+    public SalesCriteria monthTotal(SalesCriteria sc);
 
     // 월에 따른 상세보기 목록
     public List<SalesCriteria> getMonthDetailList(SalesCriteria sc);
