@@ -33,6 +33,9 @@ public class ProductsVO {
 	
 	/*초기 수량*/
 	private int productStock;
+	
+	/*현재 수량*/
+	private int LProduct;
 
 	public int getRegNum() {
 		return regNum;
@@ -114,12 +117,20 @@ public class ProductsVO {
 	public void setProductStock(int productStock) {
 		this.productStock = productStock;
 	}
+	
+	public int getLProduct() {
+		return LProduct;
+	}
+
+	public void setLProduct(int LProduct) {
+		this.LProduct = LProduct;
+	}
 
 	@Override
 	public String toString() {
 		return "ProductsVO [productId=" + productId + ", productName=" + productName + ", category=" + category
 				+ ", productPrice=" + productPrice + ", productImg=" + productImg + ", etc=" + etc + ", regDate="
-				+ regDate + ", updateDate=" + updateDate + ", productStock=" + productStock + "]";
+				+ regDate + ", updateDate=" + updateDate + ", productStock=" + productStock + ", LProduct=\" + LProduct + \"]";
 	}
 
 	

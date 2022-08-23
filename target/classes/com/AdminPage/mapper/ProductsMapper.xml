@@ -27,6 +27,11 @@
       	</if>
       </select>
       
+      <!-- 상품 수량 조절 -->
+		<update id="changeStock">
+			update product set LProduct = product.productStock - (select salesAmount from sales where productId = #{productId}) where productId = #{productId}
+		</update> 
+		     
       <!-- 상품 조회 페이지 -->
       <select id="productsGetDetail" resultType="com.AdminPage.model.ProductsVO">
       	select * from product where productId = #{productId}
