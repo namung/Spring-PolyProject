@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.table_empty {
+	height: 50px;
+	text-align: center;
+	margin: 200px 0 215px 0px;
+	font-size: 25px;
+}
+</style>
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -51,8 +59,8 @@
 
                 <button id="send_data" type="button" value="서버 제출 버튼">보내기</button>
             </form>
-
         </div>
+   
     </div>
 </div>
 
@@ -69,6 +77,7 @@ $(document).ready(function() {
 		if ($("#select_month").val() == "") 
 		{ 	
 			alert("항목을 선택해주세요");
+			return false;
 		}
 		/* 값이 있다면 */
 		else 
