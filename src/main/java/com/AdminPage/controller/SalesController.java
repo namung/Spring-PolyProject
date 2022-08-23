@@ -74,7 +74,7 @@ public class SalesController {
 		
 		logger.info("sampleResult.jsp로 이동");
 		
-		return "/admin/sales/sampleResult";
+		return "/admin/sales/sResult";
 	}
 
 }

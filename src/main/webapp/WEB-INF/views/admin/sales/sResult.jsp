@@ -50,6 +50,8 @@
 </head>
 <body>
 
+<%@include file="../includes/admin/header.jsp" %>
+
 <h1>매출관리 페이지</h1>
 
 <div class="container">
@@ -100,6 +102,8 @@
 	       	</div>
    	</div>
 </div>
+
+<%@include file="../includes/admin/footer.jsp" %>
 
 </body>
 </html>
