@@ -80,7 +80,7 @@ public class ProductsMapperTests {
 	}*/
 	
 	/*상품 정보 삭제*/
-	@Test
+	/*@Test
 	public void productsDeleteTest() {
 		String productId = "1234";
 		int result = mapper.productsDelete(productId);
@@ -88,6 +88,14 @@ public class ProductsMapperTests {
 		if(result == 1) {
 			System.out.println("삭제 성공");
 		}
+	}*/
+	
+	/*현재 수량 업데이트*/
+	@Test
+	public void changeStockTest() {
+		String productId = "감001";
+		
+		mapper.changeStock(productId);
 	}
 	
 	

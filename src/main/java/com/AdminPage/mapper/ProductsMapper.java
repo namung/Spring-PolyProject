@@ -13,6 +13,9 @@ public interface ProductsMapper {
 	/*상품 리스트*/
 	public List<ProductsVO> productsGetList(Criteria cri);
 	
+	/*상품 수량 조절*/
+	public int changeStock(String productId);
+	
 	/*상품 총 개수*/
 	public int productsGetTotal(Criteria cri);
 	
