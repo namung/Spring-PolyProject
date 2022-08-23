@@ -50,6 +50,8 @@
 </head>
 <body>
 
+<%@include file="../includes/admin/header.jsp" %>
+
 <h1>매출관리 페이지</h1>
 
 <div class="container">
@@ -92,7 +94,7 @@
 	            	</table>
 	            </c:if>
 	            <!-- 상품 리스트 X -->
-	       		<c:if test="${listCheck == 'empty'}">
+	       		<c:if test="${listcheck == 'empty'}">
 	       			<div class="table_empty">
 	       				구매 상품 목록이 없습니다.
 	       			</div>
@@ -100,6 +102,8 @@
 	       	</div>
    	</div>
 </div>
+
+<%@include file="../includes/admin/footer.jsp" %>
 
 </body>
 </html>

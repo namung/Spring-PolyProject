@@ -9,13 +9,19 @@
     </insert>-->
 
     <!-- 월 총액 보기 (sql 쿼리로 총액 한 번에 구하기) -->
-     <select id="monthTotal" resultType="int">
-        select sum(ex1.total) from (select productPrice * salesAmount total from sales where month(salesDate) = cast(#{month} as unsigned) ) ex1
+     <select id="monthTotal" resultType="com.AdminPage.model.SalesCriteria">
+        select sum(ex1.total) from (select productPrice * salesAmount total from sample_sales 
+        	<if test="month != null">
+        		where month(salesDate) = cast(#{month} as unsigned)
+        	</if>
+       	) ex1
     </select> 
 
     <!-- 월 상세목록 보기 -->
     <select id="getMonthDetailList" resultType="com.AdminPage.model.SalesCriteria">
-        <!-- select productName, productPrice, salesAmount, date_format(salesDate, '%Y-%m-%d') salesDate from sales where month(salesDate) = ${salesDate} -->
-        select productId, productName, productPrice, salesAmount, date_format(salesDate, '%Y-%m-%d') salesDate from sales where month(salesDate) = cast(#{month} as unsigned)
+        select productId, productName, productPrice, salesAmount, date_format(salesDate, '%Y-%m-%d') salesDate from sample_sales 
+        <if test="month != null">
+        	where month(salesDate) = cast(#{month} as unsigned)
+        </if>
     </select>
 </mapper>

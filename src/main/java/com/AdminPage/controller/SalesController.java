@@ -49,13 +49,13 @@ public class SalesController {
 	public String monthTotalPOST(@RequestParam("select_month") String selected_month, Model model, SalesCriteria sc) throws Exception {
 		
 		// 사용자가 선택한 월 데이터 전달
-		logger.info(selected_month);
+		logger.info("selected_month: " + selected_month);
 		
 		model.addAttribute("selected_month", selected_month); 
 		sc.setMonth(selected_month);
 		
 		// 총액 구하는 method 실행
-		int total = salesservice.monthTotal(sc);
+		SalesCriteria total = salesservice.monthTotal(sc);
 		logger.info("total: " + total);
 		
 		// 총액 model 객체에 저장.
@@ -66,15 +66,21 @@ public class SalesController {
 		
 		if(!list.isEmpty()) {
 			// 상세보기 목록을 model 객체에 저장.
+			logger.info("list: " + list);
+			
 			model.addAttribute("list", list);
+			
 		} else {
-			model.addAttribute("listCheck", "empty");
+			logger.info("list: " + list);
+			
+			model.addAttribute("listcheck", "empty");
+			
+			return "/admin/sales/sResult";
 		}
-		
 		
 		logger.info("sampleResult.jsp로 이동");
 		
-		return "/admin/sales/sampleResult";
+		return "/admin/sales/sResult";
 	}
 
 }

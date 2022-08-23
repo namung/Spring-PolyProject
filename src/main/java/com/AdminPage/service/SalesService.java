@@ -11,7 +11,7 @@ public interface SalesService {
 //    public void salesAdd(SalesVO sales);
     
     // 총액 data 전달
-    public int monthTotal(SalesCriteria sc) throws Exception;
+    public SalesCriteria monthTotal(SalesCriteria sc) throws Exception;
     
     // 상세보기 data 전달
     public List<SalesCriteria> getMonthDetailList(SalesCriteria sc) throws Exception;

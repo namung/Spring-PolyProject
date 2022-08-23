@@ -1,10 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.table_empty {
+	height: 50px;
+	text-align: center;
+	margin: 200px 0 215px 0px;
+	font-size: 25px;
+}
+</style>
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -12,17 +20,20 @@
 </head>
 <body>
 
-<h1>¸ÅÃâ°ü¸® ÆäÀÌÁö</h1>
+<%@include file="../includes/admin/header.jsp" %>
+
+<h1>ë§¤ì¶œê´€ë¦¬ í˜ì´ì§€</h1>
 
 <div class="container">
 
     <div class="sales_total">
         <div class="sales_check_box">
-            <button class="year_btn">¿ÃÇØ ¸ÅÃâ</button>
-            <button class="month_btn">ÀÌ¹ø ´Ş ¸ÅÃâ</button>
-            <button class="week_btn">ÀÌ¹ø ÁÖ ¸ÅÃâ</button>
+            <button class="year_btn">ì¼ ë§¤ì¶œ</button>
+            <button class="month_btn">ì£¼ ë§¤ì¶œ</button>
+            <button class="week_btn">ì›” ë§¤ì¶œ</button>
+            <button class=day_btn">ì—° ë§¤ì¶œ</button>
             <input type="month"name="date" id="date">
-            <button class="other_month_search">°Ë»ö</button>
+            <button class="other_month_search">ê²€ìƒ‰</button>
         </div>
 
         <br>
@@ -31,7 +42,7 @@
             <form id="sales_form" method="post">
                 <label for="select_month_label">Choose Month:</label>
                 <select id="select_month" name="select_month">
-                    <option value="">¿ùÀ» ¼±ÅÃÇØÁÖ¼¼¿ä.</option>
+                    <option value="">ì›”ì„ ì„ íƒí•´ì£¼ì„¸ìš”.</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -46,30 +57,32 @@
                     <option value="12">12</option>
                 </select>
 
-                <button id="send_data" type="button" value="¼­¹ö Á¦Ãâ ¹öÆ°">º¸³»±â</button>
+                <button id="send_data" type="button" value="ì„œë²„ ì œì¶œ ë²„íŠ¼">ë³´ë‚´ê¸°</button>
             </form>
-
         </div>
+   
     </div>
 </div>
 
+<%@include file="../includes/admin/footer.jsp" %>
 
 <script>
 
 $(document).ready(function() {
 	
-	/* º¸³»±â ¼±ÅÃÇßÀ» ¶§ */
+	/* ë³´ë‚´ê¸° ì„ íƒí–ˆì„ ë•Œ */
 	$("#send_data").click(function(){
 		
-		/* °ªÀÌ ¾ø´Ù¸é */
+		/* ê°’ì´ ì—†ë‹¤ë©´ */
 		if ($("#select_month").val() == "") 
 		{ 	
-			alert("Ç×¸ñÀ» ¼±ÅÃÇØÁÖ¼¼¿ä");
+			alert("í•­ëª©ì„ ì„ íƒí•´ì£¼ì„¸ìš”");
+			return false;
 		}
-		/* °ªÀÌ ÀÖ´Ù¸é */
+		/* ê°’ì´ ìˆë‹¤ë©´ */
 		else 
 		{    
-			    /* ·Î±×ÀÎ ¸Ş¼­µå ¼­¹ö ¿äÃ» */
+			    /* ë¡œê·¸ì¸ ë©”ì„œë“œ ì„œë²„ ìš”ì²­ */
 				$("#sales_form").attr("action", "/admin/sales/smain");
 			    $("#sales_form").submit();     
 		    
