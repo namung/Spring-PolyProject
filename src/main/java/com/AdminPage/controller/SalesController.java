@@ -30,20 +30,22 @@ public class SalesController {
 	@Autowired
 	private SalesService salesservice; 
 	
-//	// HttpServletRequest
-//	// 매출관리 데이터 전달
-//	@RequestMapping(value="/sales/smain", method=RequestMethod.POST)
-//	public String monthTotalPOST(HttpServletRequest httpServletRequest, RedirectAttributes rttr) throws Exception {
-//		
-//		logger.info("sampleResult.jsp로 이동");
-//		
-//		String month = httpServletRequest.getParameter("send_month");
-//		logger.info(month);
-//		
-//		return "/admin/sales/sampleResult";
-//	}
+	/* // 매출관리 데이터 전달
+	// HttpServletRequest
 	
-	// Model 객체 사용	
+	@RequestMapping(value="/sales/smain", method=RequestMethod.POST)
+	public String monthTotalPOST(HttpServletRequest httpServletRequest, RedirectAttributes rttr) throws Exception {
+		
+		logger.info("sampleResult.jsp로 이동");
+		
+		String month = httpServletRequest.getParameter("send_month");
+		logger.info(month);
+		
+		return "/admin/sales/sampleResult";
+	}
+	*/
+	
+	/* Model 객체 사용 */	
 	
 	@RequestMapping(value="/sales/smain", method=RequestMethod.POST)
 	public String monthTotalPOST(@RequestParam("select_month") String selected_month, Model model, SalesCriteria sc) throws Exception {
@@ -55,7 +57,7 @@ public class SalesController {
 		sc.setMonth(selected_month);
 		
 		// 총액 구하는 method 실행
-		SalesCriteria total = salesservice.monthTotal(sc);
+		int total = salesservice.monthTotal(sc);
 		logger.info("total: " + total);
 		
 		// 총액 model 객체에 저장.

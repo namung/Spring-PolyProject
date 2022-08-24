@@ -5,13 +5,17 @@ public class SalesCriteria {
 	/* 관리자가 선택한 월 */
 	private String month;
 	
-	private String productId;
+	/* product 테이블 column */
 	private String productName;
 	private int productPrice;
+	
+	/* sales 테이블 column */
+	private String productId;
 	private int salesAmount;
     private String salesDate;
 	
-	private int month_total;
+//    /* 월 총액 */
+//	private int month_total;
 	
 	
 	/* 기본 생성자 -> 기본 세팅: month = 1 */
@@ -42,9 +46,9 @@ public class SalesCriteria {
 		this.productName = productName;
 	}
 
-	public void setMonthTotal(int productPrice, int salesAmount) {
-		this.month_total = productPrice * salesAmount;
-	}
+//	public void setMonthTotal(int productPrice, int salesAmount) {
+//		this.month_total = productPrice * salesAmount;
+//	}
 	
 	public String getMonth() {
 		return month;
@@ -83,7 +87,7 @@ public class SalesCriteria {
 	public String toString() {
 		return "SalesCriteria [month=" + month + ", productId=" + productId + ", productName=" + productName
 				+ ", productPrice=" + productPrice + ", salesAmount=" + salesAmount + ", salesDate=" + salesDate
-				+ ", month_total=" + month_total + "]";
+				+ ", month_total=" + "]";
 	}
 	
 

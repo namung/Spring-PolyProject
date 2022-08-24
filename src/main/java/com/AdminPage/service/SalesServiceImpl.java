@@ -24,7 +24,8 @@ public class SalesServiceImpl implements SalesService{
     
     // 월 총액
     @Override
-    public SalesCriteria monthTotal(SalesCriteria sc1) throws Exception{
+//    public SalesCriteria monthTotal(SalesCriteria sc1) throws Exception{
+    public int monthTotal(SalesCriteria sc1) throws Exception{
 
         return salesmapper.monthTotal(sc1);
     }
