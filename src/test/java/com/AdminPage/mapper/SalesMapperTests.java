@@ -33,41 +33,46 @@ public class SalesMapperTests {
 //		salesmapper.salesAdd(sales);          // 쿼리 메서드 실행
 //	}
 
-//    // 월 총액 select 쿼리 테스트 메서드
-//    @Test
-//    public void monthTotal() throws Exception{
-//    	
-//        SalesCriteria sc = new SalesCriteria();
-//
-//        // month data가 db로 잘 갔을 경우
-//        sc.setMonth("12");
-////		// month data가 db로 잘 가지 않았을 경우
-////		sc.setMonth("13");
-//
-//        int total = 0;
-//        total = salesmapper.monthTotal(sc);          // 쿼리 메서드 실행
-//
-//        System.out.println("결과값: " + total);
-//
-//    }
-    
- // 월 선택에 따른 상세보기 쿼리 테스트 메서드
+    // 월 총액 select 쿼리 테스트 메서드
     @Test
-    public void testGetMonthDetailList() throws Exception{
+    public void monthTotal() throws Exception{
     	
-    	SalesCriteria sc = new SalesCriteria();
-    	// month data가 db로 잘 갔을 경우
-        sc.setMonth("3");
+        SalesCriteria sc = new SalesCriteria();
+
+        // month data가 db로 잘 갔을 경우
+//        sc.setMonth("3");
 //		// month data가 db로 잘 가지 않았을 경우
-//		sc.setMonth("13");
-    	
-    	List<SalesCriteria> list = salesmapper.getMonthDetailList(sc);
+		sc.setMonth("13");
+
+        int data;
+        data = salesmapper.monthTotal(sc);          // 쿼리 메서드 실행
         
-    	for(int i=0; i < list.size(); ++i) {
-    		System.out.println("list의 " + i + " 번 째 값: " + list.get(i));
-    	}
+        int total = sc.getProductPrice() * sc.getSalesAmount(); 
+        
+        System.out.println("==============================");
+        System.out.println("결과값: " + total);
+        System.out.println("sales mapper 작동 시 값: " + data);
+        System.out.println("==============================");
 
     }
+    
+// // 월 선택에 따른 상세보기 쿼리 테스트 메서드
+//    @Test
+//    public void testGetMonthDetailList() throws Exception{
+//    	
+//    	SalesCriteria sc = new SalesCriteria();
+//    	// month data가 db로 잘 갔을 경우
+//        sc.setMonth("3");
+////		// month data가 db로 잘 가지 않았을 경우
+////		sc.setMonth("13");
+//    	
+//    	List<SalesCriteria> list = salesmapper.getMonthDetailList(sc);
+//        
+//    	for(int i=0; i < list.size(); ++i) {
+//    		System.out.println("list의 " + i + " 번 째 값: " + list.get(i));
+//    	}
+//
+//    }
     	
 
 }
