@@ -6,12 +6,12 @@
   
       <!-- 상품 등록 -->
       <insert id="productsEnroll">
-      	insert into product (productId, productName, category, productPrice, productImg, etc, productStock) values (#{productId},#{productName},#{category},#{productPrice},#{productImg},#{etc},#{productStock})
+      	insert into product (productId, productName, category, productPrice, productImg, etc) values (#{productId},#{productName},#{category},#{productPrice},#{productImg},#{etc})
       </insert>
       
       <!-- 상품 리스트 -->
       <select id="productsGetList" resultType="com.AdminPage.model.ProductsVO">
-      	select regNum, productId, productName, productPrice, regDate from product
+      	select regNum, productId, productName, productPrice, regDate, productAmount from product
       	<if test="keyword != null">
       		where (productName like CONCAT ('%', #{keyword}, '%'))
       	</if>

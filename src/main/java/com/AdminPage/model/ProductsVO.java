@@ -31,6 +31,9 @@ public class ProductsVO {
 	/*수정 날짜*/
 	private Date updateDate;
 	
+	/*판매가능 수량*/
+	private int productAmount;
+	
 	public int getRegNum() {
 		return regNum;
 	}
@@ -103,13 +106,21 @@ public class ProductsVO {
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
+	
+	public int getProductAmount() {
+		return productAmount;
+	}
+
+	public void setProductAmount(int productAmount) {
+		this.productAmount = productAmount;
+	}
 
 	@Override
 	public String toString() {
 		return "ProductsVO [regNum=" + regNum + ", productId=" + productId + ", productName=" + productName
 				+ ", category=" + category + ", productPrice=" + productPrice + ", productImg=" + productImg + ", etc="
-				+ etc + ", regDate=" + regDate + ", updateDate=" + updateDate + "]";
+				+ etc + ", regDate=" + regDate + ", updateDate=" + updateDate + ", productAmount=" + productAmount
+				+ "]";
 	}
-	
 	
 }
