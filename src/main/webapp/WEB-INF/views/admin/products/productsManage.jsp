@@ -46,9 +46,10 @@
                     			<tr>
 									<td class="th_column_1">분류코드</td>
                     				<td class="th_column_2">음식명</td>
-                    				<td class="th_column_3">재고량</td>
-                    				<td class="th_column_4">판매금액</td>
-                    				<td class="th_column_5">등록날짜</td>
+                    				<td class="th_column_3">입고수량</td>
+                    				<td class="th_column_4">판매가능수량</td>
+                    				<td class="th_column_5">판매금액</td>
+                    				<td class="th_column_6">등록날짜</td>
                     			</tr>
                     		</thead>	
                     		<c:forEach items="${list}" var="list">
@@ -59,7 +60,8 @@
                     				</a>
                     			</td>
                     			<td><c:out value="${list.productName}"></c:out></td>
-                    			<td><c:out value="${list.productStock}"></c:out></td>
+                    			<td>입고수량</td>
+                    			<td>판매가능수량</td>
                     			<td><c:out value="${list.productPrice}"></c:out></td>
                     			<td><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd"/></td>
                     		</tr>

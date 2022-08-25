@@ -72,14 +72,7 @@
                     				<input name="productPrice" value="<c:out value="${productsInfo.productPrice}"/>" disabled>
                     			</div>
                     		</div>               
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품 재고</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="productStock" value="<c:out value="${productsInfo.productStock}"/>" disabled>
-                    			</div>
-                    		</div>          
+                    		
                     		<div class="form_section">
                     			<div class="form_section_title">
                     				<label>상품이미지</label>

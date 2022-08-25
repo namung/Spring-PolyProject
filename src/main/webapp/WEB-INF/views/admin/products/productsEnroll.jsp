@@ -68,14 +68,7 @@
                     				<input name="productPrice">
                     			</div>
                     		</div>
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>재고량</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="productStock">
-                    			</div>
-                    		</div>
+                    		
                     		<div class="form_section">
                     			<div class="form_section_title">
                     				<label>상품이미지</label>

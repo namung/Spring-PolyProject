@@ -91,12 +91,12 @@ public class ProductsMapperTests {
 	}*/
 	
 	/*현재 수량 업데이트*/
-	@Test
+	/*@Test
 	public void changeStockTest() {
 		String productId = "감001";
 		
 		mapper.changeStock(productId);
-	}
+	}*/
 	
 	
 	
