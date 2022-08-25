@@ -46,7 +46,7 @@
                     			<tr>
 									<td class="th_column_1">분류코드</td>
                     				<td class="th_column_2">음식명</td>
-                    				<td class="th_column_3">재고량</td>
+                    				<td class="th_column_3">판매가능수량</td>
                     				<td class="th_column_4">판매금액</td>
                     				<td class="th_column_5">등록날짜</td>
                     			</tr>
@@ -59,7 +59,7 @@
                     				</a>
                     			</td>
                     			<td><c:out value="${list.productName}"></c:out></td>
-                    			<td><c:out value="${list.productStock}"></c:out></td>
+                    			<td><c:out value="${list.productAmount}"></c:out></td>
                     			<td><c:out value="${list.productPrice}"></c:out></td>
                     			<td><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd"/></td>
                     		</tr>
@@ -78,7 +78,7 @@
                	<div class="search_wrap">
                		<form id="searchForm" action="/admin/products/productsManage" method="get">
                			<div class="search_input">
-                   			<input type="text" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"></c:out>'>
+                   			<input type="text" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"></c:out>' placeholder="음식명을 입력하세요.">
                    			<input type="hidden" name="pageNum" value='<c:out value="${pageMaker.cri.pageNum }"></c:out>'>
                    			<input type="hidden" name="amount" value='${pageMaker.cri.amount}'>
                    			<input type="hidden" name="type" value="G">

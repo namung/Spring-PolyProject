@@ -58,16 +58,7 @@
                     				<span class="ck_warn publisher_warn">판매금액을 입력해주세요.</span>
                     			</div>
                     		</div>             
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품재고</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="productStock" value="${productsInfo.productStock}">
-                    				<span class="ck_warn publisher_warn">상품재고를 입력해주세요.</span>
-                    			</div>
-                    			                  				                 
-                    		</div>          
+                    		
                     		
                     		<div class="form_section">
                     			<div class="form_section_title">
