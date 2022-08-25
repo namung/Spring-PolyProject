@@ -94,7 +94,7 @@
 	            	</table>
 	            </c:if>
 	            <!-- 상품 리스트 X -->
-	       		<c:if test="${listcheck == 'empty'}">
+	       		<c:if test="${listcheck == 'empty' || listcheck == 'null'}">
 	       			<div class="table_empty">
 	       				구매 상품 목록이 없습니다.
 	       			</div>

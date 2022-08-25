@@ -3,25 +3,47 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.AdminPage.mapper.SalesMapper">
-    <!-- 데이터 넣기 -->
-    <!--<insert id="salesAdd">
+    <!-- 데이터 넣기 쿼리
+    <insert id="salesAdd">
         insert into sales value(#{productId}, #{productName}, #{productPrice}, #{salesAmount}, #{salesDate})
     </insert>-->
-
-    <!-- 월 총액 보기 (sql 쿼리로 총액 한 번에 구하기) -->
+	
+	<!-- 월 총액 쿼리 -->
+    <select id="monthTotal" resultType="int">
+        select ifnull(sum(C.total), 0) 
+		from (select A.productPrice * B.salesAmount total
+				from product A
+				left join sales B on A.productId = B.productId
+				<if test="month != null">
+					where month(B.salesDate) = cast(#{month} as unsigned)
+				</if>
+			) C
+    </select>
+    
+    <!-- 월 총액 구버전 쿼리 
      <select id="monthTotal" resultType="com.AdminPage.model.SalesCriteria">
         select sum(ex1.total) from (select productPrice * salesAmount total from sample_sales 
         	<if test="month != null">
         		where month(salesDate) = cast(#{month} as unsigned)
         	</if>
        	) ex1
-    </select> 
-
-    <!-- 월 상세목록 보기 -->
+    </select>-->
+    
+    <!-- 월 상세목록 -->
+    <select id="getMonthDetailList" resultType="com.AdminPage.model.SalesCriteria">
+	    select A.productId, A.productName, A.productPrice, B.salesAmount, date_format(B.salesDate, '%Y-%m-%d') salesDate 
+		from product A
+		left join sales B on A.productId = B.productId
+		<if test="month != null">
+			where month(B.salesDate) = cast(#{month} as unsigned)
+		</if>
+	</select>
+	
+    <!-- 월 상세목록 구버전 쿼리 
     <select id="getMonthDetailList" resultType="com.AdminPage.model.SalesCriteria">
         select productId, productName, productPrice, salesAmount, date_format(salesDate, '%Y-%m-%d') salesDate from sample_sales 
         <if test="month != null">
         	where month(salesDate) = cast(#{month} as unsigned)
         </if>
-    </select>
+    </select>-->
 </mapper>
