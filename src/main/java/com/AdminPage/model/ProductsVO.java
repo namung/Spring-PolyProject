@@ -31,12 +31,9 @@ public class ProductsVO {
 	/*수정 날짜*/
 	private Date updateDate;
 	
-	/*초기 수량*/
-	private int productStock;
+	/*판매가능 수량*/
+	private int productAmount;
 	
-	/*현재 수량*/
-	private int LProduct;
-
 	public int getRegNum() {
 		return regNum;
 	}
@@ -110,31 +107,20 @@ public class ProductsVO {
 		this.updateDate = updateDate;
 	}
 	
-	public int getProductStock() {
-		return productStock;
+	public int getProductAmount() {
+		return productAmount;
 	}
 
-	public void setProductStock(int productStock) {
-		this.productStock = productStock;
-	}
-	
-	public int getLProduct() {
-		return LProduct;
-	}
-
-	public void setLProduct(int LProduct) {
-		this.LProduct = LProduct;
+	public void setProductAmount(int productAmount) {
+		this.productAmount = productAmount;
 	}
 
 	@Override
 	public String toString() {
-		return "ProductsVO [productId=" + productId + ", productName=" + productName + ", category=" + category
-				+ ", productPrice=" + productPrice + ", productImg=" + productImg + ", etc=" + etc + ", regDate="
-				+ regDate + ", updateDate=" + updateDate + ", productStock=" + productStock + ", LProduct=\" + LProduct + \"]";
+		return "ProductsVO [regNum=" + regNum + ", productId=" + productId + ", productName=" + productName
+				+ ", category=" + category + ", productPrice=" + productPrice + ", productImg=" + productImg + ", etc="
+				+ etc + ", regDate=" + regDate + ", updateDate=" + updateDate + ", productAmount=" + productAmount
+				+ "]";
 	}
-
-	
-	
-	
 	
 }

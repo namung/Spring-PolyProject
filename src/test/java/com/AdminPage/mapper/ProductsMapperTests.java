@@ -56,12 +56,12 @@ public class ProductsMapperTests {
 	}*/
 	
 	/*상품 조회 페이지*/
-	/*@Test
+	@Test
 	public void productsGetDetailTest() {
-		String productId = "핫001";
+		String productId = "017";
 		ProductsVO result = mapper.productsGetDetail(productId);
 		System.out.println("상품 조회 데이터: " + result);
-	}*/
+	}
 	
 	/*상품 정보 수정*/
 	/*@Test
@@ -91,12 +91,12 @@ public class ProductsMapperTests {
 	}*/
 	
 	/*현재 수량 업데이트*/
-	@Test
+	/*@Test
 	public void changeStockTest() {
 		String productId = "감001";
 		
 		mapper.changeStock(productId);
-	}
+	}*/
 	
 	
 	
