@@ -16,7 +16,10 @@ public class AdminInterceptor implements HandlerInterceptor {
 		
 		HttpSession session = request.getSession();
 		
-		MemberVO lvo = (MemberVO)session.getAttribute("memeber");
+		
+		MemberVO lvo = (MemberVO)session.getAttribute("member");
+		
+		System.out.println("member: " + lvo);
 		
 		if(lvo == null) {
 			response.sendRedirect("/main");
