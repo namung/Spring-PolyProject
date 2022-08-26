@@ -32,6 +32,12 @@
                         <li>
                             <a class="admin_list_02" href="/admin/products/productsManage">상품 관리</a>
                         </li>
+                        <li>
+                            <a class="admin_list_03" href="/admin/IO/productsInput">입고 관리</a>
+                        </li>
+                        <li>
+                            <a class="admin_list_04" href="/admin/IO/productsOutput">출고 관리</a>
+                        </li>
                                                                                  
                     </ul>
                 </div>
