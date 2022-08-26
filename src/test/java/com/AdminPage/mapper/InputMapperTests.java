@@ -30,15 +30,25 @@ public class InputMapperTests {
 		mapper.productsInput(input);
 	}*/
 	
-	/*입고목록 테스트*/
+	/*입고목록 및 상품 총 개수*/
 	@Test
-	public void inputGetList() throws Exception{
-		Criteria cri = new Criteria(1,10);
+	public void inputGetList(){
+		Criteria cri = new Criteria();
+		
+		/*검색조건*/
+		cri.setKeyword("010");
+		
+		/*검색리스트*/
+		
 		List<InputVO> list = mapper.inputGetList(cri);
 		
 		for(int i = 0; i<list.size(); i++) {
 			System.out.println("list"+i+"..........."+list.get(i));
 		}
+		
+		/*상품 총 개수*/
+		int result = mapper.inputGetTotal(cri);
+		System.out.println("result.........."+ result);
 	}
 	
 	

@@ -22,7 +22,12 @@
                 <!-- 네비영역 -->
                 <div class="admin_navi_wrap">
                   <ul>
-
+						<li >
+                            <a class="admin_list_01" href="/admin/products/productsEnroll">상품 등록</a>
+                        </li>
+                        <li>
+                            <a class="admin_list_02" href="/admin/products/productsManage">상품 관리</a>
+                        </li>
                       <li>
                           <a class="admin_list_02" href="/admin/IO/productsInputList">입고 내역</a>
                       </li>                                                                           
@@ -64,7 +69,7 @@
 
 /* 취소 버튼 */
 $("#cancelBtn").click(function(){
-    location.href="/admin/IO/productsInput"
+    location.href="/admin/IO/productsInputList"
 });
  
 /* 등록 버튼 */

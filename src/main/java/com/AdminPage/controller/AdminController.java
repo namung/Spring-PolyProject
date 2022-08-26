@@ -60,7 +60,7 @@ public class AdminController {
         if(!list.isEmpty()) {
         	model.addAttribute("list", list);
         }else {
-        	model.addAttribute("listCheck", "empty");
+        	model.addAttribute("listcheck", "empty");
         	return;
         }
         /*페이지 인터페이스 데이터*/
@@ -110,23 +110,8 @@ public class AdminController {
     	return "redirect:/admin/products/productsManage";
     }
     
-    /* 입고 등록 페이지 접속 */
-    @RequestMapping(value = "/IO/productsInput", method = RequestMethod.GET)
-    public void productsInputGET() throws Exception{
-        logger.info("입고등록페이지 접속");
-    }
     
-    /* 입고 내역 페이지 접속 */
-    @RequestMapping(value = "/IO/productsInputList", method = RequestMethod.GET)
-    public void productsInputListGET() throws Exception{
-        logger.info("입고내역페이지 접속");
-    }
     
-    /* 출고 관리 페이지 접속 */
-    @RequestMapping(value = "/IO/productsOutput", method = RequestMethod.GET)
-    public void productsOutputGET() throws Exception{
-        logger.info("출고관리페이지 접속");
-    }
     
     
 	/* 관리자 메뉴관리 페이지 이동 */

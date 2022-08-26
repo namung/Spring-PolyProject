@@ -10,6 +10,23 @@
 	</insert>
    
    	<!-- 입고 목록 -->
-   	
+   	<select id="inputGetList" resultType="com.AdminPage.model.InputVO">
+      	select a.inputNum, a.productId, a.inputAmount, a.inputDate, b.productName 
+      	from inputlist a
+      	inner join product b on a.productId = b.productId
+      	<if test="keyword != null">
+      		where (productName like CONCAT ('%', #{keyword}, '%'))
+      	</if>
+      	order by inputNum DESC
+      	limit #{skip}, #{amount}
+      </select>
+      
+      <!-- 입고 총 개수 -->
+      <select id="inputGetTotal" resultType="int">
+      	select count(*) from inputlist
+      	<if test="keyword != null">
+      		where (productId like CONCAT ('%', #{keyword}, '%'))
+      	</if>
+      </select>
      
   </mapper>
