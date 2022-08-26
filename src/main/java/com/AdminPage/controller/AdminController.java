@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.AdminPage.model.Criteria;
 import com.AdminPage.model.PageDTO;
 import com.AdminPage.model.ProductsVO;
+import com.AdminPage.service.InputService;
 import com.AdminPage.service.ProductsService;
 
 @Controller
@@ -108,6 +109,26 @@ public class AdminController {
     	rttr.addFlashAttribute("delete_result", result);
     	return "redirect:/admin/products/productsManage";
     }
+    
+    /* 입고 등록 페이지 접속 */
+    @RequestMapping(value = "/IO/productsInput", method = RequestMethod.GET)
+    public void productsInputGET() throws Exception{
+        logger.info("입고등록페이지 접속");
+    }
+    
+    /* 입고 내역 페이지 접속 */
+    @RequestMapping(value = "/IO/productsInputList", method = RequestMethod.GET)
+    public void productsInputListGET() throws Exception{
+        logger.info("입고내역페이지 접속");
+    }
+    
+    /* 출고 관리 페이지 접속 */
+    @RequestMapping(value = "/IO/productsOutput", method = RequestMethod.GET)
+    public void productsOutputGET() throws Exception{
+        logger.info("출고관리페이지 접속");
+    }
+    
+    
 	/* 관리자 메뉴관리 페이지 이동 */
     @RequestMapping(value="/menu/mmain", method = RequestMethod.GET)
     public void adminMenuGET() throws Exception{
