@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.AdminPage.model.Criteria;
+import com.AdminPage.model.OutputCriteria;
+import com.AdminPage.model.OutputVO;
 import com.AdminPage.model.PageDTO;
 import com.AdminPage.model.ProductsVO;
 import com.AdminPage.service.InputService;
+import com.AdminPage.service.OutputService;
 import com.AdminPage.service.ProductsService;
 
 @Controller
@@ -28,6 +31,7 @@ public class AdminController {
 
 	@Autowired
 	private ProductsService productsService; 
+	private OutputService outputService;
 	
 	/* 관리자 매출관리 페이지 이동 */
     @RequestMapping(value="/sales/smain", method = RequestMethod.GET)
@@ -122,12 +126,28 @@ public class AdminController {
         logger.info("입고내역페이지 접속");
     }
     
-    /* 출고 관리 페이지 접속 */
+    /* 출고 등록 페이지 접속 */
     @RequestMapping(value = "/IO/productsOutput", method = RequestMethod.GET)
     public void productsOutputGET() throws Exception{
-        logger.info("출고관리페이지 접속");
+        logger.info("출고 등록 페이지 접속");
     }
     
+    /* 출고 목록 페이지 접속 */
+    @RequestMapping(value = "/IO/productsOutputList", method = RequestMethod.GET)
+    public void productsOutputListGET(OutputCriteria cri, Model model) throws Exception{
+    	
+        logger.info("출고 목록 페이지 접속......" + cri);
+        
+        /* 에러!! 수정하기. 출고 목록 출력 데이터*/
+        List<OutputVO> list = outputService.getOutputList(cri);
+        
+        if(!list.isEmpty()) {
+        	model.addAttribute("list", list);
+        }else {
+        	model.addAttribute("listCheck", "empty");
+        	return;
+        }
+    }
     
 	/* 관리자 메뉴관리 페이지 이동 */
     @RequestMapping(value="/menu/mmain", method = RequestMethod.GET)

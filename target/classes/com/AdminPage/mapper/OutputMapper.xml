@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.AdminPage.mapper.OutputMapper">
+
+	<!-- 출고 등록 -->
+	<insert id="productsOutputEnroll">
+		insert into outputlist(productId, outputAmount) values(#{productId}, #{outputAmount}) 
+	</insert>
+   
+  	<!-- 출고 목록 -->
+    <select id="getOutputList" resultType="com.AdminPage.model.OutputVO">
+    	select outputNum, productId, outputAmount, salesDate from outputlist
+    	order by outputNum desc
+    	limit #{skip}, #{amount}
+    </select>
+   	
+     
+  </mapper>
