@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.AdminPage.mapper.SalesMapper;
+import com.AdminPage.model.OutputCriteria;
 import com.AdminPage.model.SalesCriteria;
 import com.AdminPage.model.SalesVO;
 
@@ -37,17 +38,17 @@ public class SalesMapperTests {
     @Test
     public void monthTotal() throws Exception{
     	
-        SalesCriteria sc = new SalesCriteria();
+    	OutputCriteria sc = new OutputCriteria();
 
-        // month data가 db로 잘 갔을 경우
-//        sc.setMonth("3");
-//		// month data가 db로 잘 가지 않았을 경우
-		sc.setMonth("13");
+        //month data가 db로 잘 갔을 경우
+        sc.setMonth("8");
+////		// month data가 db로 잘 가지 않았을 경우
+//		sc.setMonth("13");
 
         int data;
         data = salesmapper.monthTotal(sc);          // 쿼리 메서드 실행
         
-        int total = sc.getProductPrice() * sc.getSalesAmount(); 
+        int total = sc.getProductPrice() * sc.getOutputAmount(); 
         
         System.out.println("==============================");
         System.out.println("결과값: " + total);

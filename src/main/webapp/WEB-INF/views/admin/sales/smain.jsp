@@ -28,11 +28,11 @@
 
     <div class="sales_total">
         <div class="sales_check_box">
-            <button class="year_btn">일 매출</button>
-            <button class="month_btn">주 매출</button>
-            <button class="week_btn">월 매출</button>
-            <button class=day_btn">연 매출</button>
-            <input type="month"name="date" id="date">
+            <button class="year_btn">오늘 매출</button>
+            <button class="month_btn">이번 주 매출</button>
+            <button class="week_btn">이번 달 매출</button>
+            <button class=day_btn">올해 매출</button>
+            <input type="month" name="date" id="date">
             <button class="other_month_search">검색</button>
         </div>
 
@@ -40,7 +40,7 @@
 
         <div class="sales_month_check_box">
             <form id="sales_form" method="post">
-                <label for="select_month_label">Choose Month:</label>
+                <label for="select_month_label">보고 싶은 월을 선택하세요:</label>
                 <select id="select_month" name="select_month">
                     <option value="">월을 선택해주세요.</option>
                     <option value="1">1</option>

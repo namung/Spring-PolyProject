@@ -87,7 +87,7 @@
 	            			<td><c:out value="${list.productId}"></c:out></td>
 	            			<td><c:out value="${list.productName}"></c:out></td>
 	            			<td><c:out value="${list.productPrice}"></c:out></td>
-	            			<td><c:out value="${list.salesAmount}"></c:out></td>
+	            			<td><c:out value="${list.outputAmount}"></c:out></td>
 	            			<td><c:out value="${list.salesDate}"></c:out></td>
 	            		</tr>
 	            		</c:forEach>
