@@ -33,6 +33,7 @@ public class InputServiceImpl implements InputService {
 	}
 	
 	/*상품 총 개수*/
+	@Override
 	public int inputGetTotal(Criteria cri) {
 		log.info("inputGetTotal()...........");
 		return inputMapper.inputGetTotal(cri);

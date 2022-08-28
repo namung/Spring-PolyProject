@@ -9,16 +9,16 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.AdminPage.model.Criteria;
-import com.AdminPage.model.InputVO;
+import com.AdminPage.model.OutputVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
-public class InputMapperTests {
+public class OutputMapperTests {
 
 	@Autowired
-	private InputMapper mapper;
+	private OutputMapper mapper;
 	
-	/*입고등록*/
+	/*출고등록*/
 	/*@Test
 	public void productsInputTest() throws Exception{
 		
@@ -30,38 +30,38 @@ public class InputMapperTests {
 		mapper.productsInput(input);
 	}*/
 	
-	/*입고목록 및 상품 총 개수*/
-	/*@Test
+	/*출고목록 및 상품 총 개수*/
+	@Test
 	public void inputGetList(){
 		Criteria cri = new Criteria();
 		
 		/*검색조건*/
-		/*cri.setKeyword("010");
+		cri.setKeyword("020");
 		
 		/*검색리스트*/
 		
-		/*List<InputVO> list = mapper.inputGetList(cri);
+		List<OutputVO> list = mapper.outputGetList(cri);
 		
 		for(int i = 0; i<list.size(); i++) {
 			System.out.println("list"+i+"..........."+list.get(i));
 		}
 		
 		/*상품 총 개수*/
-		/*int result = mapper.inputGetTotal(cri);
+		int result = mapper.outputGetTotal(cri);
 		System.out.println("result.........."+ result);
-	}*/
+	}
 	
-	/*입고 목록 테스트*/
-	@Test
-	public void productsInputGetListTest() throws Exception{
+	/*출고 목록 테스트*/
+	/*@Test
+	public void productsOutputGetListTest() throws Exception{
 		Criteria cri = new Criteria(1,10);
 		
-		List<InputVO> list = mapper.inputGetList(cri);
+		List<OutputVO> list = mapper.outputGetList(cri);
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println("list"+i+"........."+list.get(i));
 		}
-	}
+	}*/
 	
 	
 	
