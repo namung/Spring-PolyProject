@@ -17,7 +17,7 @@
 </head>
 </head>
 <body>
-				<%@include file="../includes/admin/header.jsp" %>
+				<%@include file="../includes/admin/pheader.jsp" %>
 				
                 <div class="admin_content_wrap">
                     <div class="admin_content_subject"><span>상품수정</span></div>
