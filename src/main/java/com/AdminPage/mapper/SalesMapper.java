@@ -19,6 +19,6 @@ public interface SalesMapper {
     /* 월에 따른 상세보기 목록 */
     public List<OutputCriteria> getMonthDetailList(OutputCriteria oc);
     
-    /* outputlist 목록 총 개수*/
-	public int outputGetTotal(Criteria cri);
+    /* outputlist 목록 총 개수
+	public int outputGetTotal(Criteria cri); */
 }
