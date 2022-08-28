@@ -11,9 +11,9 @@
 	<!-- 월 총액 쿼리 -->
     <select id="monthTotal" resultType="int">
         select ifnull(sum(C.total), 0) 
-		from (select A.productPrice * B.salesAmount total
+		from (select A.productPrice * B.outputAmount total
 				from product A
-				left join sales B on A.productId = B.productId
+				left join outputlist B on A.productId = B.productId
 				<if test="month != null">
 					where month(B.salesDate) = cast(#{month} as unsigned)
 				</if>
@@ -30,13 +30,14 @@
     </select>-->
     
     <!-- 월 상세목록 -->
-    <select id="getMonthDetailList" resultType="com.AdminPage.model.SalesCriteria">
-	    select A.productId, A.productName, A.productPrice, B.salesAmount, date_format(B.salesDate, '%Y-%m-%d') salesDate 
+    <select id="getMonthDetailList" resultType="com.AdminPage.model.OutputCriteria">
+	    select A.productId, A.productName, A.productPrice, B.outputAmount, date_format(B.salesDate, '%Y-%m-%d') salesDate 
 		from product A
-		left join sales B on A.productId = B.productId
+		left join outputlist B on A.productId = B.productId
 		<if test="month != null">
 			where month(B.salesDate) = cast(#{month} as unsigned)
 		</if>
+		order by salesDate desc
 	</select>
 	
     <!-- 월 상세목록 구버전 쿼리 
@@ -46,4 +47,16 @@
         	where month(salesDate) = cast(#{month} as unsigned)
         </if>
     </select>-->
+    
+    <!-- 월 상세 목록 수 -->
+    <select id="outputGetTotal" resultType="com.AdminPage.model.OutputCriteria">
+	    select A.productId, A.productName, A.productPrice, B.outputAmount, date_format(B.salesDate, '%Y-%m-%d') salesDate 
+		from product A
+		left join outputlist B on A.productId = B.productId
+		<if test="month != null">
+			where month(B.salesDate) = cast(#{month} as unsigned)
+		</if>
+		order by salesDate desc
+	</select>
+    
 </mapper>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.AdminPage.mapper.SalesMapper;
+import com.AdminPage.model.OutputCriteria;
 import com.AdminPage.model.SalesCriteria;
 import com.AdminPage.model.SalesVO;
 
@@ -24,17 +25,16 @@ public class SalesServiceImpl implements SalesService{
     
     // 월 총액
     @Override
-//    public SalesCriteria monthTotal(SalesCriteria sc1) throws Exception{
-    public int monthTotal(SalesCriteria sc1) throws Exception{
+    public int monthTotal(OutputCriteria oc) throws Exception{
 
-        return salesmapper.monthTotal(sc1);
+        return salesmapper.monthTotal(oc);
     }
     
     // 상세보기
     @Override
-    public List<SalesCriteria> getMonthDetailList(SalesCriteria sc2) throws Exception{
+    public List<OutputCriteria> getMonthDetailList(OutputCriteria oc) throws Exception{
     	
-    	return salesmapper.getMonthDetailList(sc2);
+    	return salesmapper.getMonthDetailList(oc);
     }
 
 }
