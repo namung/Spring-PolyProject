@@ -15,6 +15,22 @@ public class InputVO {
 	
 	/*입고 날짜*/
 	private Date inputDate;
+	
+	/*음식명*/
+	private String productName;
+
+	
+	
+	
+	
+	
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 
 	public int getInputNum() {
 		return inputNum;
@@ -51,7 +67,7 @@ public class InputVO {
 	@Override
 	public String toString() {
 		return "InputVO [inputNum=" + inputNum + ", productId=" + productId + ", inputAmount=" + inputAmount
-				+ ", inputDate=" + inputDate + "]";
+				+ ", inputDate=" + inputDate + ", productName=" + productName + "]";
 	}
 		
 }

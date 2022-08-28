@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.AdminPage.mapper.OutputMapper">
+  	<!-- 출고 등록 -->
+  	<insert id="productsOutput">
+  		insert into outputlist(productId, outputAmount) values(#{productId}, #{outputAmount})
+  	</insert>
+  	
+  	<!-- 출고 목록 -->
+  	<select id="outputGetList" resultType="com.AdminPage.model.OutputVO">
+  		select a.outputNum, a.productId, a.outputAmount, a.salesDate, b.productName
+  		from outputlist a
+  		inner join product b on a.productId = b.productId
+  		<if test="keyword != null">
+  			where (productName like CONCAT ('%', #{keyword}, '%'))
+  		</if>
+  		order by outputNum DESC
+  		limit #{skip}, #{amount}
+  	</select>
+  	
+  	<!-- 출고 총 개수 -->
+  	<select id="outputGetTotal" resultType="int">
+  		select count(*) from outputlist
+  		<if test="keyword != null">
+  			where (productId like CONCAT ('%', #{keyword}, '%'))
+  		</if>
+  	</select>
+  </mapper>

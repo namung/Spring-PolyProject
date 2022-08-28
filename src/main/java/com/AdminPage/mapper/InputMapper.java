@@ -13,5 +13,8 @@ public interface InputMapper {
 	/*입고 목록*/
 	public List<InputVO> inputGetList(Criteria cri);
 	
+	/*입고목록 총 개수*/
+	public int inputGetTotal(Criteria cri);
+	
 	
 }
