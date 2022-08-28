@@ -16,28 +16,7 @@
 
 <body>
  
-   <%@include file="../includes/admin/header.jsp" %>
-            <!-- top_subject_area -->
-            <div class="admin_top_wrap">
-                <span>재고관리 페이지</span>
-                
-            </div>
-            <!-- contents-area -->
-            <div class="admin_wrap">
-                <!-- 네비영역 -->
-                <div class="admin_navi_wrap">
-                  <ul>
-                      <li >
-                          <a class="admin_list_01" href="/admin/products/productsEnroll">상품 등록</a>
-                      </li>
-                      <li>
-                          <a class="admin_list_02" href="/admin/products/productsManage">상품 관리</a>
-                      </li>                                                                       
-                  </ul>
-                </div>
-                <div class="admin_content_wrap">
-                    <div class="admin_content_subject"><span>상품 관리</span></div>
-                </div>
+   <%@include file="../includes/admin/pheader.jsp" %>
                <div class="goods_table_wrap">
                    	<!-- 상품 리스트 O -->
                     <c:if test="${listcheck != 'empty'}">

@@ -13,31 +13,7 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-		<%@include file="../includes/admin/header.jsp" %>
-            <!-- top_subject_area -->
-            <div class="admin_top_wrap">
-                <span>재고관리 페이지</span>
-                
-            </div>
-            <!-- contents-area -->
-            <div class="admin_wrap">
-                <!-- 네비영역 -->
-                <div class="admin_navi_wrap">
-                  <ul>
-                      <li>
-                          <a class="admin_list_01" href="/admin/products/productsEnroll">상품 등록</a>
-                      </li>
-                      <li>
-                          <a class="admin_list_02" href="/admin/products/productsManage">상품 관리</a>
-                      </li>
-                        <li>
-                            <a class="admin_list_04" href="/admin/IO/productsOutput">출고 관리</a>
-                        </li>                               
-                      <li>
-                          <a class="admin_list_03" href="/admin/IO/productsInput">입고 등록</a>
-                      </li>                                          
-                  </ul>
-                </div>
+		<%@include file="../includes/admin/pheader.jsp" %>
                 <div class="admin_content_wrap">
                     <div class="admin_content_subject"><span>입고 목록</span></div>
                 </div>
