@@ -12,5 +12,8 @@ public interface OutputService {
 	public void productsOutputEnroll(OutputVO output) throws Exception;
 	
 	/* 출고 목록 */
-    public List<OutputVO> getOutputList(OutputCriteria cri) throws Exception;
+    public List<OutputVO> getOutputList(OutputCriteria cri);
+    
+    /*출고 총 개수*/
+    public int outputGetTotal(OutputCriteria cri);
 }

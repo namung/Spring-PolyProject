@@ -19,7 +19,8 @@
 
             <div class="admin_content_wrap">
                 <div class="admin_content_subject"><span>출고 목록 페이지</span></div>
-                
+                <div>${list}</div>
+                <div>${pageMaker}</div>
                 <!-- <div class="author_table_wrap">
                     	<table class="author_table">
                     		<thead>

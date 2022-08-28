@@ -33,12 +33,19 @@ public class OutputServiceImpl implements OutputService{
 	
 	/*출고 목록*/
 	@Override
-	public List<OutputVO> getOutputList(OutputCriteria cri) throws Exception {
+	public List<OutputVO> getOutputList(OutputCriteria cri){
         
 		logger.info("(service) getOutputList()......" + cri);
 		
         return outputMapper.getOutputList(cri);
     }
+	
+	/*총 개수*/
+	@Override
+	public int outputGetTotal(OutputCriteria cri) {
+		logger.info("outputGetTotal()........");
+		return outputMapper.outputGetTotal(cri);
+	}
  
 
 

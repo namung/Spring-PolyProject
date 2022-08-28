@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.AdminPage.model.Criteria;
 import com.AdminPage.model.OutputCriteria;
+import com.AdminPage.model.OutputPageDTO;
 import com.AdminPage.model.OutputVO;
 import com.AdminPage.model.PageDTO;
 import com.AdminPage.model.ProductsVO;
@@ -134,12 +135,12 @@ public class AdminController {
     
     /* 출고 목록 페이지 접속 */
     @RequestMapping(value = "/IO/productsOutputList", method = RequestMethod.GET)
-    public void productsOutputListGET(OutputCriteria cri, Model model) throws Exception{
+    public void productsOutputListGET(OutputCriteria cri, Model model) throws Exception {
     	
-        logger.info("출고 목록 페이지 접속......" + cri);
+        logger.info("출고 목록 페이지 접속......" );
         
         /* 에러!! 수정하기. 출고 목록 출력 데이터*/
-        List<OutputVO> list = outputService.getOutputList(cri);
+        List list = outputService.getOutputList(cri);
         
         if(!list.isEmpty()) {
         	model.addAttribute("list", list);
@@ -147,6 +148,8 @@ public class AdminController {
         	model.addAttribute("listCheck", "empty");
         	return;
         }
+        /*페이지 인터페이스 데이터*/
+        model.addAttribute("pageMaker", new OutputPageDTO(cri, outputService.outputGetTotal(cri)));
     }
     
 	/* 관리자 메뉴관리 페이지 이동 */

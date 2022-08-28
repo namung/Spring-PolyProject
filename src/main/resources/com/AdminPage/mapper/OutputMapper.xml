@@ -12,9 +12,16 @@
   	<!-- 출고 목록 -->
     <select id="getOutputList" resultType="com.AdminPage.model.OutputVO">
     	select outputNum, productId, outputAmount, salesDate from outputlist
-    	order by outputNum desc
+    	order by outputNum DESC
     	limit #{skip}, #{amount}
     </select>
    	
+   	<!-- 출고 총 개수 -->
+   	<select id="ouputGetTotal" resultType="int">
+   		select count(*) from outputlist
+   		<if test = "keyword != null">
+   			where productId like CONCAT('%', #{keyword}, '%')
+   		</if>
+   	</select>
      
   </mapper>

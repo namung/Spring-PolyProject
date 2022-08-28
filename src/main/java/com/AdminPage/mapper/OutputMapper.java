@@ -14,4 +14,6 @@ public interface OutputMapper {
 	/* 게시판 목록 */
     public List<OutputVO> getOutputList(OutputCriteria cri);
 	
+    /*총 개수*/
+    public int outputGetTotal(OutputCriteria cri);
 }
