@@ -12,16 +12,19 @@
 
 <%@include file="../includes/admin/header.jsp" %>
 
-<h1>매출 관리 페이지</h1>
+<h2>매출 관리 페이지</h2>
 
 <div class="containder">
 	
 	<div class="sales_total">
-		<%@include file="../includes/sales/sales_navi.jsp" %>
+	
+    	<a href="choice_sales.jsp">[오늘/이번주/이번달/올해] 매출 보러가기</a>
+    
+        <br>
 		
-		<h2>이번 주 총 합계: <fmt:formatNumber value="${total}" type="number"/>원</h2>
+		<h3>이번 주 총 합계: <fmt:formatNumber value="${weekTotal}" type="number"/>원</h3>
 		
-		<h2>상세보기</h2>
+		<h4>상세보기</h4>
 		
 			<div class="details_table_wrap">
 	           	<!-- detail 리스트 O -->
@@ -33,7 +36,8 @@
 	            				<td class="th_column_2">상품 이름</td>
 	            				<td class="th_column_3">상품 가격</td>
 	            				<td class="th_column_4">구매 수량</td>
-	            				<td class="th_column_5">구매 날짜</td>
+	            				<td class="th_column_5">총 매출</td>
+	            				<td class="th_column_6">구매 날짜</td>
 	            			</tr>
 	            		</thead>	
 	            		<c:forEach items="${list}" var="list">
@@ -42,6 +46,7 @@
 	            			<td><c:out value="${list.productName}"></c:out></td>
 	            			<td><c:out value="${list.productPrice}"></c:out></td>
 	            			<td><c:out value="${list.outputAmount}"></c:out></td>
+	            			<td><c:out value="${list.totalPrice}"></c:out></td>
 	            			<td><c:out value="${list.salesDate}"></c:out></td>
 	            		</tr>
 	            		</c:forEach>

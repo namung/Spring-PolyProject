@@ -58,7 +58,9 @@
 
 	<div class="sales_total">
 	
-        <%@include file="../includes/sales/sales_navi.jsp" %>
+    	<a href="choice_sales.jsp">[오늘/이번주/이번달/올해] 매출 보러가기</a>
+    
+        <br>
 
 		<h2><span id="month">${selected_month}</span>월 총 합계: <fmt:formatNumber value="${total}" type="number"/>원</h2>
 		

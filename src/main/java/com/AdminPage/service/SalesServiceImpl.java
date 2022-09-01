@@ -26,14 +26,12 @@ public class SalesServiceImpl implements SalesService{
     // 월 총액
     @Override
     public int monthTotal(OutputCriteria oc) throws Exception{
-
         return salesmapper.monthTotal(oc);
     }
     
     // 상세보기
     @Override
     public List<OutputCriteria> getMonthDetailList(OutputCriteria oc) throws Exception{
-    	
     	return salesmapper.getMonthDetailList(oc);
     }
     
@@ -41,6 +39,12 @@ public class SalesServiceImpl implements SalesService{
     @Override
     public int weekTotal(OutputCriteria oc) throws Exception {
     	return salesmapper.weekTotal(oc);
+    }
+    
+    // 주 상세보기
+    @Override
+    public List<OutputCriteria> getWeekList(OutputCriteria oc) throws Exception{
+    	return salesmapper.getWeekList(oc);
     }
     
 

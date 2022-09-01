@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>매출관리 페이지</title>
 <style>
 .table_empty {
 	height: 50px;
@@ -32,8 +32,8 @@
 
     <div class="sales_total">
     
-        <%@include file="../includes/sales/sales_navi.jsp" %>
-		
+    	<a href="choice_sales">[오늘/이번주/이번달/올해] 매출 보러가기</a>
+    
         <br>
 
         <div class="sales_month_check_box">
@@ -87,25 +87,6 @@ $(document).ready(function() {
 		}
 	});	
 });
-
-$(document).ready(function() {
-	/* 주 선택 보내기 클릭 */
-	$("#send_week_data").click(function(){
-		
-		var checked_radio = $('input:radio[name=btn]:checked').val(); // 선택된 radio의 value 가져오기
-		if (checked_radio === undefined) 
-		{   alert('옵션을 선택해주세요.);
-			return false;
-		} 
-		else {    
-			/* 주 매출 메서드 서버 요청 */
-			$("#sales_week_form").attr("action", "/admin/sales/smain");
-	    	$("#sales_form").submit();       
-		}
-	});	
-});
-	    
- 
 </script>
 </body>
 </html>

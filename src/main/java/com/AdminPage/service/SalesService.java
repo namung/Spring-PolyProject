@@ -15,6 +15,8 @@ public interface SalesService {
     /* 상세보기 data 전달 */
     public List<OutputCriteria> getMonthDetailList(OutputCriteria oc) throws Exception;
     
-    /* 주 총액*/
+    /* 주 총액 및 주 상세보기 */
     public int weekTotal(OutputCriteria oc) throws Exception;
+
+	public List<OutputCriteria> getWeekList(OutputCriteria oc) throws Exception;
 }

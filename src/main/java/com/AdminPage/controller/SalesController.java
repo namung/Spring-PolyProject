@@ -48,8 +48,7 @@ public class SalesController {
 	}
 	*/
 	
-	/* Model 객체 사용 */	
-	
+	/* 선택한 월 총액 보기 */
 	@RequestMapping(value="/sales/smain", method=RequestMethod.POST)
 	public String monthTotalPOST(@RequestParam("select_month") String selected_month, Model model, OutputCriteria oc) throws Exception {
 		
@@ -86,11 +85,15 @@ public class SalesController {
 		return "/admin/sales/sSelectMontResult";
 	}
 	
-	@RequestMapping(value="/sales/sWeekReseult", method=RequestMethod.POST)
-	public String WeekTotalPOST(@RequestParam("btn") String btn, Model model, OutputCriteria oc) throws Exception{
-		
-		// 사용자가 선택한 월 데이터 전달
-		logger.info("check btn: " + btn);
+	/* 오늘/이번주/이번달/올해 매출 선택 페이지로 이동 */
+	@RequestMapping(value="/sales/choice_sales", method=RequestMethod.GET)
+	public void coiceSalesGET() throws Exception{
+		logger.info("choice_sales.jsp로 이동");
+	}
+	
+	/* 이번 주 매출 보기*/
+	@RequestMapping(value="/sales/sWeekResult", method=RequestMethod.GET)
+	public String WeekTotalPOST( Model model, OutputCriteria oc) throws Exception{
 		
 		// 주 총액 처리
 		int weekTotal = salesservice.weekTotal(oc);
@@ -99,7 +102,7 @@ public class SalesController {
 		model.addAttribute("weekTotal", weekTotal);
 		
 		// 주 목록 처리
-		List<OutputCriteria> list = salesservice.getMonthDetailList(oc);
+		List<OutputCriteria> list = salesservice.getWeekList(oc);
 		
 		if(!list.isEmpty()) {
 			
@@ -117,7 +120,6 @@ public class SalesController {
 		logger.info("sWeekResult.jsp로 이동");
 		
 		return "/admin/sales/sWeekResult";
-		
 	}
 	
 }
