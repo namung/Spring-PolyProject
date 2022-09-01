@@ -13,12 +13,18 @@ public interface SalesMapper {
     /* 매출 데이터 추가 */
     //public void salesAdd(SalesVO sales);
     
-    /* 월 총액 */
+    /* 선택 월 총액 */
     public int monthTotal(OutputCriteria oc);
 
-    /* 월에 따른 상세보기 목록 */
+    /* 선택 월에 따른 상세보기 목록 */
     public List<OutputCriteria> getMonthDetailList(OutputCriteria oc);
     
-    /* outputlist 목록 총 개수
-	public int outputGetTotal(Criteria cri); */
+    /* outputlist 목록 총 개수 
+	public int outputGetTotal(Criteria cri);*/
+    
+    /* 주 총액 */
+    public int weekTotal(OutputCriteria oc);
+    
+    /* 주 목록*/
+    public List<OutputCriteria> getWeekList(OutputCriteria oc);
 }

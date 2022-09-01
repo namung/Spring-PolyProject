@@ -12,6 +12,10 @@
 	margin: 200px 0 215px 0px;
 	font-size: 25px;
 }
+
+.sales_list {
+	display: none;
+}
 </style>
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
@@ -28,14 +32,14 @@
 
     <div class="sales_total">
         <div class="sales_check_box">
-            <button class="year_btn">오늘 매출</button>
+            <button class="today_btn">오늘 매출</button>
             <button class="month_btn">이번 주 매출</button>
             <button class="week_btn">이번 달 매출</button>
-            <button class=day_btn">올해 매출</button>
+            <button class="year_btn">올해 매출</button>
             <input type="month" name="date" id="date">
             <button class="other_month_search">검색</button>
         </div>
-
+		
         <br>
 
         <div class="sales_month_check_box">
@@ -60,7 +64,7 @@
                 <button id="send_data" type="button" value="서버 제출 버튼">보내기</button>
             </form>
         </div>
-   
+     
     </div>
 </div>
 
@@ -70,7 +74,7 @@
 
 $(document).ready(function() {
 	
-	/* 보내기 선택했을 때 */
+	/* 월 선택 보내기 클릭 */
 	$("#send_data").click(function(){
 		
 		/* 값이 없다면 */
@@ -82,12 +86,21 @@ $(document).ready(function() {
 		/* 값이 있다면 */
 		else 
 		{    
-			    /* 로그인 메서드 서버 요청 */
+			    /* 월 매출 메서드 서버 요청 */
 				$("#sales_form").attr("action", "/admin/sales/smain");
 			    $("#sales_form").submit();     
 		    
 		}
-	});
+	});	
+	
+	/* 이번주 매출 버튼 클릭 */
+	$("#month_btn").click(function(){
+		
+	    /* 월 매출 메서드 서버 요청 */
+		   
+		    
+		}
+	});	
 });
 	    
  

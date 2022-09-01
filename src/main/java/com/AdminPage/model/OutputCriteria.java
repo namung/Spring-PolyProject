@@ -14,6 +14,9 @@ public class OutputCriteria {
 	private int outputAmount;
     private String salesDate;
     
+    /* 내가 만든 price * amount column */
+    private int totalPrice;
+    
     /* 기본 생성자 -> 기본 세팅: month = 1 */
 	public OutputCriteria() {
 		this("1");
@@ -72,10 +75,19 @@ public class OutputCriteria {
 		this.salesDate = salesDate;
 	}
 
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	
 	@Override
 	public String toString() {
 		return "OutputCriteria [month=" + month + ", productName=" + productName + ", productPrice=" + productPrice
-				+ ", productId=" + productId + ", outputAmount=" + outputAmount + ", salesDate=" + salesDate + "]";
+				+ ", productId=" + productId + ", outputAmount=" + outputAmount + ", salesDate=" + salesDate + "]"
+				+ ", totalPrice" + totalPrice + "]";
 	}
 
 }

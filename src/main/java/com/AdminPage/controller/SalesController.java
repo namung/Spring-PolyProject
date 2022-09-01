@@ -9,9 +9,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.AdminPage.model.OutputCriteria;
@@ -76,12 +78,43 @@ public class SalesController {
 			logger.info("list: " + list);
 			model.addAttribute("listcheck", "empty");
 	
-			return "/admin/sales/sResult";
+			return "/admin/sales/sSelectMontResult";
 		}
 		
-		logger.info("sampleResult.jsp로 이동");
+		logger.info("sSelectMontResult.jsp로 이동");
 		
-		return "/admin/sales/sResult";
+		return "/admin/sales/sSelectMontResult";
 	}
-
+	
+	@GetMapping("weekList")
+	public String list(Model model, OutputCriteria oc) throws Exception{
+		
+		// 주 총액 처리
+		int weekTotal = salesservice.weekTotal(oc);
+		logger.info("week total: " + weekTotal);
+		
+		model.addAttribute("weekTotal", weekTotal);
+		
+		// 주 목록 처리
+		List<OutputCriteria> list = salesservice.getMonthDetailList(oc);
+		
+		if(!list.isEmpty()) {
+			
+			// 목록을 model 객체에 저장.
+			logger.info("list: " + list);
+			model.addAttribute("list", list);
+			
+		} else {
+			logger.info("list: " + list);
+			model.addAttribute("listcheck", "empty");
+	
+			return "/admin/sales/sWeekResult";
+		}
+		
+		logger.info("sWeekResult.jsp로 이동");
+		
+		return "/admin/sales/sWeekResult";
+		
+	}
+	
 }

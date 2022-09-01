@@ -36,5 +36,12 @@ public class SalesServiceImpl implements SalesService{
     	
     	return salesmapper.getMonthDetailList(oc);
     }
+    
+    // 주 총액
+    @Override
+    public int weekTotal(OutputCriteria oc) throws Exception {
+    	return salesmapper.weekTotal(oc);
+    }
+    
 
 }
