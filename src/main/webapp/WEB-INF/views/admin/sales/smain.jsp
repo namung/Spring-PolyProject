@@ -31,14 +31,8 @@
 <div class="container">
 
     <div class="sales_total">
-        <div class="sales_check_box">
-            <button class="today_btn">오늘 매출</button>
-            <button class="month_btn">이번 주 매출</button>
-            <button class="week_btn">이번 달 매출</button>
-            <button class="year_btn">올해 매출</button>
-            <input type="month" name="date" id="date">
-            <button class="other_month_search">검색</button>
-        </div>
+    
+        <%@include file="../includes/sales/sales_navi.jsp" %>
 		
         <br>
 
@@ -92,13 +86,21 @@ $(document).ready(function() {
 		    
 		}
 	});	
-	
-	/* 이번주 매출 버튼 클릭 */
-	$("#month_btn").click(function(){
+});
+
+$(document).ready(function() {
+	/* 주 선택 보내기 클릭 */
+	$("#send_week_data").click(function(){
 		
-	    /* 월 매출 메서드 서버 요청 */
-		   
-		    
+		var checked_radio = $('input:radio[name=btn]:checked').val(); // 선택된 radio의 value 가져오기
+		if (checked_radio === undefined) 
+		{   alert('옵션을 선택해주세요.);
+			return false;
+		} 
+		else {    
+			/* 주 매출 메서드 서버 요청 */
+			$("#sales_week_form").attr("action", "/admin/sales/smain");
+	    	$("#sales_form").submit();       
 		}
 	});	
 });

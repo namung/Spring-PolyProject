@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,13 +57,8 @@
 <div class="container">
 
 	<div class="sales_total">
-	        <div class="sales_check_box">
-	            <button class="year_btn">올해 매출</button>
-	            <button class="month_btn">이번 달 매출</button>
-	            <button class="week_btn">이번 주 매출</button>
-	            <input type="month"name="date" id="date">
-	            <button class="other_month_search">검색</button>
-	        </div>
+	
+        <%@include file="../includes/sales/sales_navi.jsp" %>
 
 		<h2><span id="month">${selected_month}</span>월 총 합계: <fmt:formatNumber value="${total}" type="number"/>원</h2>
 		
@@ -100,6 +95,7 @@
 	       			</div>
 	       		</c:if> 
 	       	</div>
+	       	
    	</div>
 </div>
 

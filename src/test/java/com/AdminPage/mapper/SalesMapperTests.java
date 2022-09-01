@@ -75,31 +75,31 @@ public class SalesMapperTests {
 //
 //    }
     
-    /* 주 총액 test */
-    @Test
-    public void TestWeekTotal() throws Exception {
-    	
-    	OutputCriteria sc = new OutputCriteria();
-    	
-    	int data;
-        data = salesmapper.weekTotal(sc);          // 쿼리 메서드 실행
-                
-        System.out.println("==============================");
-        System.out.println("weekTotal 작동 시 값: " + data);
-        System.out.println("==============================");
-    }
-    
-//    /* 주 목록 test */
+//    /* 주 총액 test */
 //    @Test
-//    public void TestWeekList() throws Exception {
+//    public void TestWeekTotal() throws Exception {
 //    	
-//    	OutputCriteria oc = new OutputCriteria();
+//    	OutputCriteria sc = new OutputCriteria();
 //    	
-//    	List<OutputCriteria> list = salesmapper.getWeekList(oc);
-//    	
-//    	for(int i=0; i< list.size(); ++i) {
-//    		System.out.println("list의 " + i + " 번 째 값: " + list.get(i));
-//    	}
+//    	int data;
+//        data = salesmapper.weekTotal(sc);          // 쿼리 메서드 실행
+//                
+//        System.out.println("==============================");
+//        System.out.println("weekTotal 작동 시 값: " + data);
+//        System.out.println("==============================");
 //    }
+    
+    /* 주 목록 test */
+    @Test
+    public void TestWeekList() throws Exception {
+    	
+    	OutputCriteria oc = new OutputCriteria();
+    	
+    	List<OutputCriteria> list = salesmapper.getWeekList(oc);
+    	
+    	for(int i=0; i< list.size(); ++i) {
+    		System.out.println("list의 " + i + " 번 째 값: " + list.get(i));
+    	}
+    }
 
 }

@@ -86,8 +86,11 @@ public class SalesController {
 		return "/admin/sales/sSelectMontResult";
 	}
 	
-	@GetMapping("weekList")
-	public String list(Model model, OutputCriteria oc) throws Exception{
+	@RequestMapping(value="/sales/sWeekReseult", method=RequestMethod.POST)
+	public String WeekTotalPOST(@RequestParam("btn") String btn, Model model, OutputCriteria oc) throws Exception{
+		
+		// 사용자가 선택한 월 데이터 전달
+		logger.info("check btn: " + btn);
 		
 		// 주 총액 처리
 		int weekTotal = salesservice.weekTotal(oc);
