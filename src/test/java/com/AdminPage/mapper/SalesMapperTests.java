@@ -20,7 +20,7 @@ public class SalesMapperTests {
     @Autowired
     private SalesMapper salesmapper;	// SalesMapper.java 인터페이스의 의존성 주입.
 
-//	// 판매물품 입력 쿼리 테스트 메서드
+    // 판매물품 입력 쿼리 테스트 메서드
 //	@Test
 //	public void salesAdd() throws Exception{
 //		SalesVO sales = new SalesVO();
@@ -35,27 +35,27 @@ public class SalesMapperTests {
 //	}
 
     // 월 총액 select 쿼리 테스트 메서드
-    @Test
-    public void monthTotal() throws Exception{
-    	
-    	OutputCriteria sc = new OutputCriteria();
-
-        //month data가 db로 잘 갔을 경우
-        sc.setMonth("8");
-////		// month data가 db로 잘 가지 않았을 경우
-//		sc.setMonth("13");
-
-        int data;
-        data = salesmapper.monthTotal(sc);          // 쿼리 메서드 실행
-        
-        int total = sc.getProductPrice() * sc.getOutputAmount(); 
-        
-        System.out.println("==============================");
-        System.out.println("결과값: " + total);
-        System.out.println("sales mapper 작동 시 값: " + data);
-        System.out.println("==============================");
-
-    }
+//    @Test
+//    public void monthTotal() throws Exception{
+//    	
+//    	OutputCriteria sc = new OutputCriteria();
+//
+//        //month data가 db로 잘 갔을 경우
+//        sc.setMonth("8");
+//////		// month data가 db로 잘 가지 않았을 경우
+////		sc.setMonth("13");
+//
+//        int data;
+//        data = salesmapper.monthTotal(sc);          // 쿼리 메서드 실행
+//        
+//        int total = sc.getProductPrice() * sc.getOutputAmount(); 
+//        
+//        System.out.println("==============================");
+//        System.out.println("결과값: " + total);
+//        System.out.println("sales mapper 작동 시 값: " + data);
+//        System.out.println("==============================");
+//
+//    }
     
 // // 월 선택에 따른 상세보기 쿼리 테스트 메서드
 //    @Test
@@ -74,6 +74,32 @@ public class SalesMapperTests {
 //    	}
 //
 //    }
+    
+//    /* 주 총액 test */
+//    @Test
+//    public void TestWeekTotal() throws Exception {
+//    	
+//    	OutputCriteria sc = new OutputCriteria();
+//    	
+//    	int data;
+//        data = salesmapper.weekTotal(sc);          // 쿼리 메서드 실행
+//                
+//        System.out.println("==============================");
+//        System.out.println("weekTotal 작동 시 값: " + data);
+//        System.out.println("==============================");
+//    }
+    
+    /* 주 목록 test */
+    @Test
+    public void TestWeekList() throws Exception {
     	
+    	OutputCriteria oc = new OutputCriteria();
+    	
+    	List<OutputCriteria> list = salesmapper.getWeekList(oc);
+    	
+    	for(int i=0; i< list.size(); ++i) {
+    		System.out.println("list의 " + i + " 번 째 값: " + list.get(i));
+    	}
+    }
 
 }

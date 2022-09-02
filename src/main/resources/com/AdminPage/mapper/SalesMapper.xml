@@ -58,5 +58,18 @@
 		</if>
 		order by salesDate desc
 	</select> -->
-    
+	
+	<!-- 이번주 총 매출 쿼리 -->
+	<select id="weekTotal" resultType="int">
+	    select ifnull(sum(c.weektotal), 0) from (select b.productPrice * b.productAmount weektotal
+	    from (select * from outputlist where salesDate between (date_format(date_sub(now(), interval weekday(now()) day), '%Y-%m-%d' )) and (select date_format(date_sub(now(), interval weekday(now()) - 6 day), '%Y-%m-%d' ))) a
+		left join product b on a.productId = b.productId) c
+	</select>
+	
+	<!-- 이번주 매출 목록 쿼리 -->
+	<select id="getWeekList" resultType="com.AdminPage.model.OutputCriteria">
+    	select a. productId, b.productName, b.productPrice, a.outputAmount, b.productPrice * a.outputAmount totalPrice, date_format(a.salesDate, '%Y-%m-%d') salesDate
+		from (select * from outputlist where salesDate between (date_format(date_sub(now(), interval weekday(now()) day), '%Y-%m-%d' )) and (select date_format(date_sub(now(), interval weekday(now()) - 6 day), '%Y-%m-%d' ))) a
+		left join product b on a.productId = b.productId
+    </select> 
 </mapper>
