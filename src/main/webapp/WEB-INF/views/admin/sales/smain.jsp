@@ -32,8 +32,14 @@
 
     <div class="sales_total">
     
-    	<a href="choice_sales">[오늘/이번주/이번달/올해] 매출 보러가기</a>
-    
+    	<div class="sales_btn">
+		    <button type="button" name="btn" value="day_btn" onclick="#"> 오늘 매출</button>
+		    <button type="button" name="btn" value="week_btn" onclick="location.href='sWeekResult'"> 이번 주 매출</button>
+		    <button type="button" name="btn" value="month_btn" onclick="#"> 월 매출</button>
+		    <button type="button" name="btn" value="year_btn" onclick="#"> 올해 매출</button>
+		    
+		</div>
+    	
         <br>
 
         <div class="sales_month_check_box">
